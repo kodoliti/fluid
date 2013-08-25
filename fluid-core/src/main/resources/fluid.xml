@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fluid xmlns="http://kodoliti.org/schema/fluid"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://kodoliti.org/schema/fluid http://kodoliti.org/schema/fluid-schema.xsd">
+    <system-conf>
+        <!--topology-->
+        <grid>
+        <nodes>
+           <node id="1" address="192.168.1.10" />
+           <node id="2" address="192.168.1.11" />
+        </nodes>
+        </grid>
+        <!--/topology-->
+        <persistence>
+            <provider type="MONGODB" />
+            <connection-conf driverClass="" 
+                             host="127.0.0.1"
+                             port="27017"
+                             username=""
+                             password="" />
+        </persistence>
+    </system-conf>
+    <process-conf>
+        <diagram location="" />
+
+        <service-tasks>
+            <task class="" ></task>
+        </service-tasks>
+    </process-conf>
+</fluid>
