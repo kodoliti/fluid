@@ -32,7 +32,7 @@ class ProcessContextLoader {
   val fileName: String = "bpmn/SimpleProcess.xml"
   var fileSource: InputSource = _
 
-  val source: StreamSource = new StreamSource(ClassLoader.getSystemResourceAsStream("bpmn/schema/BPMN20.xsd"))
+  val source: StreamSource = new StreamSource(ClassLoader.getSystemResourceAsStream("bpmn/SimpleProcess.xml"))
 
   val schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
   schemaFactory.setResourceResolver(new ResourceResolver())

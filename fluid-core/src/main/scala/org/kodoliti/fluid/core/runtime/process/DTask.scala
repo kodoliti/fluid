@@ -3,13 +3,13 @@ package org.kodoliti.fluid.core.runtime.process
 import org.kodoliti.fluid.assembly.ClassCreator
 
 class DTask(script:String, id: String,
-                     name: String,
-                     dTree: DTree) extends DTree(id: String,
-                     name: String,
-                     dTree: DTree) {
+            name: String,
+            nextTree: DTree) extends DTree(id: String,
+                        name: String,
+                        nextTree: DTree) {
 
-  val scriptClass: Class[_] = new ClassCreator().create(script)
-
+ // val scriptClass: Class[_] = new ClassCreator().create(script)
+ val scriptClass: Class[_] = null
   def getScriptClass(): Class[_] = scriptClass
 
 

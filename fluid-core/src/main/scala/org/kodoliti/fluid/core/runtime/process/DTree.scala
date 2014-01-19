@@ -1,15 +1,23 @@
 package org.kodoliti.fluid.core.runtime.process
 
 class DTree(id: String,
-                     name: String,
-                     dTree: DTree) {
+            name: String,
+            nextTree: DTree) {
 
-  val nextNode = dTree
+  def this() = this("","", null)
+
+  val nextNode: DTree = nextTree
+
 
   def process() = {
 
-
   }
+
+  def setNext(dTree: DTree): DTree = {
+   // nextNode = dTree
+    return nextNode
+  }
+
 
   def isEndNode(): Boolean = true
 
