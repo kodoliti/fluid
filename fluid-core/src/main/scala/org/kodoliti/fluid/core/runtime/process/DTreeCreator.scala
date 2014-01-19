@@ -65,7 +65,6 @@ object DTreeCreator {
       // case x :: xs if (x.getDeclaredType.getName ne "org.kodoliti.fluid.model.TStartEvent") => new DTree("", "", dTree.previousNode, create(xs,dTree))
       //case x :: xs if (x.getDeclaredType.getName ne "org.kodoliti.fluid.model.TStartEvent") => create(xs, new DTree("", "", dTree.previousNode, dTree.nextNode))
     }
-
     return create(list, dTree)
   }
 
