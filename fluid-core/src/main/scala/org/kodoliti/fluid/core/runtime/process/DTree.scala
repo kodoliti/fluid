@@ -9,9 +9,13 @@ class DTree(id: String,
   val nextNode: DTree = nextTree
 
 
-  def process() = {
+  def execute() ={
 
   }
+
+ /* def process() = {
+
+  } */
 
   def setNext(dTree: DTree): DTree = {
    // nextNode = dTree
