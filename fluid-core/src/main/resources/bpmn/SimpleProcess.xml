@@ -14,7 +14,7 @@
 
       <!-- nodes -->
       <startEvent id="_1" name="StartProcess" />
-    <scriptTask id="_2" name="Hello" >
+    <scriptTask id="_2" name="Hello">
       <script>System.out.println("Hello World!!!!");</script>
     </scriptTask>
     <endEvent id="_3" name="EndProcess" >

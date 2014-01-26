@@ -1,11 +1,12 @@
 package org.kodoliti.fluid.core.runtime.model.base
 
-import org.kodoliti.fluid.core.runtime.process.Executor
 
-case class ExclusiveGateway(id: String, name: String) extends FlowElement {
-  def id_=(x$1: String): Unit = null
+class ExclusiveGateway(id: String, name: String) extends FlowElement {
 
-  def execute(executor: Executor) {
-    executor.execute(this)
-  }
+//  def id_=(x$1: String): Unit
+
+
+  /* def execute(executor: Executor) {
+     executor.execute(this)
+   }*/
 }

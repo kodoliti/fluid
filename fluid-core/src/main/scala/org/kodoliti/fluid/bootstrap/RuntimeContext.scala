@@ -7,7 +7,7 @@ import javassist.bytecode.MethodInfo
 import org.kodoliti.fluid.CtProcessClass
 import java.lang.reflect.Method
 import org.kodoliti.fluid.utility.logging.Logger
-import org.kodoliti.fluid.core.runtime.process.DTree
+import org.kodoliti.fluid.core.runtime.process.PTree
 
 class RuntimeContext {
 
@@ -18,8 +18,8 @@ class RuntimeContext {
     val fluidConf = new ConfigurationLoader().load.get
     //ProcessContextLoader(ConfigurationEnvironment.getConfiguration().process)
   //  ProcessContextLoader(fluidConf.process)
-    val dTree =  new ProcessContextLoader().load().get
-    ProcessEnvironment(dTree)
+    val dTree =  new ProcessContextLoader(fluidConf.process).load().get
+    ProcessEnvironment(List(dTree))
 
 //    val script = processDef.tasks.head.script
 

@@ -1,17 +1,15 @@
 package org.kodoliti.fluid.bootstrap
 
 import org.kodoliti.fluid.core.runtime.model.ProcessConf
-import org.kodoliti.fluid.xml.util.XMLLoader
 import org.xml.sax.InputSource
 import javax.xml.validation.SchemaFactory
 import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
-import org.kodoliti.fluid.core.runtime.model.base.ProcessDef
 import java.io.File
 import org.kodoliti.fluid.xml.ResourceResolver
 import javax.xml.bind.{JAXBElement, Unmarshaller, JAXBContext}
 import org.kodoliti.fluid.model.TDefinitions
-import org.kodoliti.fluid.core.runtime.process.{DTree, DTreeCreator}
+import org.kodoliti.fluid.core.runtime.process.{PTree, ProcessTreeCreator}
 
 //import scala.collection.JavaConversions.
 
@@ -25,7 +23,7 @@ object ProcessContextLoader {
   }
 }
 
-class ProcessContextLoader {
+class ProcessContextLoader(processConf: ProcessConf) {
 
   val jaxbContext: String = "org.kodoliti.fluid.model"
 
@@ -47,17 +45,23 @@ class ProcessContextLoader {
  */
   val dictionaryPath = List("", fileName)
 
-  def load(): Option[DTree] = {
-    val wordstream = Option {
-      getClass.getClassLoader.getResourceAsStream(fileName)
-    } orElse {
-      resourceAsStreamFromSrc(dictionaryPath)
-    } getOrElse {
-      sys.error("Could not load word list, dictionary file not found")
-    }
+  def loadProcessTree(): Option[List[PTree]] = {
+      return null
+  }
+
+  def load(): Option[PTree] = {
+    /* val wordstream = Option {
+       getClass.getClassLoader.getResourceAsStream(fileName)
+     } orElse {
+       resourceAsStreamFromSrc(dictionaryPath)
+     } getOrElse {
+       sys.error("Could not load word list, dictionary file not found")
+     } */
     try {
-      val s = io.Source.fromInputStream(wordstream)
-      val xml = new XMLLoader(schema).loadXML(new InputSource(wordstream))
+      // val s = io.Source.fromInputStream(wordstream)
+      // val xml = new XMLLoader(schema).loadXML(new InputSource(wordstream))
+
+
       //  ConfigurationEnvironment(new ConfigurationParser().parseConfiguration(xml))
       //  Some(new BPMNFileParser().getBPMNProcessDefinitions(xml))
 
@@ -71,14 +75,14 @@ class ProcessContextLoader {
       val value: TDefinitions = root.getValue
       //Some(ConfigurationEnvironment.getConfiguration())
 
-      Some(DTreeCreator.create(value))
+      Some(ProcessTreeCreator.create(value))
 
 
     } catch {
       case e: Exception => println("Could not load word list: " + e)
-      throw e
+        throw e
     } finally {
-      wordstream.close()
+      //   wordstream.close()
     }
   }
 

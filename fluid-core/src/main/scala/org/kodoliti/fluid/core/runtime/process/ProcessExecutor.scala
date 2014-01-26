@@ -6,23 +6,22 @@ import org.kodoliti.fluid.core.runtime.model.base.StartEvent
 import org.kodoliti.fluid.core.runtime.model.base.SequenceFlow
 import org.kodoliti.fluid.core.runtime.model.base.ProcessDef
 import org.kodoliti.fluid.utility.logging.Logger
-import org.kodoliti.fluid.model.TDefinitions
 
 class ProcessExecutor {
 
   val log = Logger
 
   def runProcess(name: String) = {
-   // val processDef: ProcessDef = ProcessEnvironment.getProcessDef()
-
-   // val startEvent = processDef.events.find(e => e.isInstanceOf[StartEvent]).get
+    val processTree: PTree = ProcessEnvironment.getProcessTree()
+    execute(processTree)
+    // val startEvent = processDef.events.find(e => e.isInstanceOf[StartEvent]).get
     //val endEvent = processDef.events.find(e => e.isInstanceOf[EndEvent]).get
 
-   // val sequences = processDef.sequences
+    // val sequences = processDef.sequences
 
- //   val orderedSeq = createOrderedSequence(Seq(), sequences, startEvent.asInstanceOf[StartEvent].id)
+    //   val orderedSeq = createOrderedSequence(Seq(), sequences, startEvent.asInstanceOf[StartEvent].id)
     //run(orderedSeq, processDef.tasks, startEvent.asInstanceOf[StartEvent], endEvent.asInstanceOf[EndEvent], processDef)
-  //  run(orderedSeq, processDef.tasks, processDef)
+    //  run(orderedSeq, processDef.tasks, processDef)
   }
 
 
@@ -36,17 +35,16 @@ class ProcessExecutor {
     }
   }
 
-  def process(dTree:DTree): DTree = {
-
+  def execute(dTree: PTree): PTree = {
     if (dTree.isEndNode())
-     return null
-     else
-    dTree.process()
-
-    return dTree.nextNode;
+      return dTree
+    else {
+      dTree.execute()
+    }
+    return execute(dTree.nextNode);
   }
 
-
+/*
   def run(seq: Seq[SequenceFlow], tasks: List[Task], processDef: ProcessDef) {
     log.info(">>>> start processing <<<<")
     val startEvent = processDef.events.find(e => e.isInstanceOf[StartEvent])
@@ -59,11 +57,11 @@ class ProcessExecutor {
 
     for (sequenceFlow <- seq) {
 
-     /* val sourceEvent = elements.find(e => e.id == sequenceFlow.sourceRef)
+      /* val sourceEvent = elements.find(e => e.id == sequenceFlow.sourceRef)
 
-      if (!sourceEvent.isEmpty) {
-        sourceEvent.get.execute(new Executor())
-      } */
+       if (!sourceEvent.isEmpty) {
+         sourceEvent.get.execute(new Executor())
+       } */
       val targetEvent = elements.find(e => e.id == sequenceFlow.targetRef)
 
       if (!targetEvent.isEmpty) {
@@ -72,7 +70,7 @@ class ProcessExecutor {
 
       if (!targetEvent.isEmpty) {
         if (sequenceFlow.condition.isEmpty)
-           targetEvent.get.execute(new Executor())
+          targetEvent.get.execute(new Executor())
         else
           sequenceFlow.condition
       }
@@ -100,8 +98,8 @@ class ProcessExecutor {
     log.info(">>>> end processing <<<<")
   }
 
-}
-
+} */
+/*
 class Executor {
   val log = Logger
   /* def execute(event: Event) {
@@ -125,7 +123,7 @@ class Executor {
   }
 
   def execute(exclusiveGateway: ExclusiveGateway) {
-     log.info("exclusiveGateway : " + exclusiveGateway)
-   }
-
+    log.info("exclusiveGateway : " + exclusiveGateway)
+  }
+*/
 }

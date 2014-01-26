@@ -1,17 +1,18 @@
 package org.kodoliti.fluid.core.runtime
 
-import model.base.ProcessDef
-import process.DTree
+import process.PTree
 
 object ProcessEnvironment {
 
-  private var dTree: DTree = _
+  private var pTreeList: List[PTree] = _
 
-  def apply(dTree: DTree) {
-    this.dTree = dTree
+  def apply(pTreeList: List[PTree]) {
+    this.pTreeList = pTreeList
   }
 
-  def getProcessDef(): DTree = dTree
+  def getProcessTree(): PTree = pTreeList.head
+
+  def findProcessTree(name: String): PTree = pTreeList.find(_.id equalsIgnoreCase(name)).get
 
 }
 

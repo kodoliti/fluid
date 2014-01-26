@@ -9,17 +9,16 @@ class ProcessActivityTest extends AssertionsForJUnit with ShouldMatchers {
 
   var processActivity: ProcessActivity = new ProcessActivity()
 
+
   @Before
   def setUp() {
-    print("test")
+  //  print("test")
   }
 
 
   @Test
   def shouldStartSimpleProcess() {
     processActivity.start("SIMPLE_PROCESS")
-    new ProcessDef()
-
     /*
     val ns = <foo><bar>Text1</bar><bar>Text2</bar><bin/></foo>
         println("\n")

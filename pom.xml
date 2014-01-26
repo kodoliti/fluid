@@ -98,6 +98,7 @@
 							<goal>compile</goal>
 						</goals>
                         <configuration>
+                            <encoding>UTF-8</encoding>
                            <compilerVersion>1.6</compilerVersion>
                         </configuration>
 					</execution>

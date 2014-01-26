@@ -3,7 +3,7 @@ package org.kodoliti.fluid.xml.parser
 import xml.{Node, NodeSeq, Elem}
 import org.kodoliti.fluid.core.runtime.model.base._
 import org.kodoliti.fluid.core.runtime.model.base.ProcessDef
-import org.kodoliti.fluid.core.runtime.process.DTree
+import org.kodoliti.fluid.core.runtime.process.PTree
 import org.kodoliti.fluid.model.TDefinitions
 import javax.xml.bind.{Unmarshaller, JAXBContext}
 
@@ -14,8 +14,8 @@ class BPMNFileParser {
     val processElem = (xml \\ "process").head
 
     ProcessDef((processElem \ "@id").toString, (processElem \ "@name").toString,
-      getEvents((processElem \\ "_").toList, List[Event]()),
-      getListFromNodeSeq(xml \\ "scriptTask", List[Task](), node => Task((node \ "@id").text, (node \ "@name").text, (node \ "script").text)),
+      getEvents((processElem \\ "_").toList, List[Event]()), null,
+    //  getListFromNodeSeq(xml \\ "scriptTask", List[Task](), node => Task((node \ "@id").text, (node \ "@name").text, (node \ "script").text)),
       getListFromNodeSeq(xml \\ "sequenceFlow", List[SequenceFlow](), node => new SequenceFlow((node \ "@id").text, (node \ "@sourceRef").text, (node \ "@targetRef").text, getCondition(node))))
   }
 
