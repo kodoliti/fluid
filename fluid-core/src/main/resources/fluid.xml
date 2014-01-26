@@ -21,7 +21,7 @@
         </persistence>
     </system-conf>
     <process-conf>
-        <diagram location="" />
+        <diagram location="bpmn" />
 
         <service-tasks>
             <task class="" ></task>

@@ -5,18 +5,16 @@
              expressionLanguage="http://www.mvel.org/2.0"
              xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
-             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL schema/BPMN20.xsd"
              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
              xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
-             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-             xmlns:tns="http://www.jboss.org/drools">
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI" >
 
-  <process processType="Private" isExecutable="true" id="Minimal" name="Minimal Process" tns:packageName="com.sample" >
+  <process processType="Private" isExecutable="true" id="Minimal" name="SIMPLE_PROCESS"> <!-- tns:packageName="com.sample"  -->
 
-    <!-- nodes -->
-    <startEvent id="_1" name="StartProcess" />
-    <scriptTask id="_2" name="Hello" >
+      <!-- nodes -->
+      <startEvent id="_1" name="StartProcess" />
+    <scriptTask id="_2" name="Hello">
       <script>System.out.println("Hello World!!!!");</script>
     </scriptTask>
     <endEvent id="_3" name="EndProcess" >

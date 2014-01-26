@@ -18,8 +18,15 @@ class RuntimeContext {
     val fluidConf = new ConfigurationLoader().load.get
     //ProcessContextLoader(ConfigurationEnvironment.getConfiguration().process)
   //  ProcessContextLoader(fluidConf.process)
-    val dTree =  new ProcessContextLoader(fluidConf.process).load().get
-    ProcessEnvironment(List(dTree))
+
+
+   // val dTree =  new ProcessContextLoader(fluidConf.process).load().get
+   // ProcessEnvironment(List(dTree))
+
+    val pTreeList =  new ProcessContextLoader(fluidConf.process).loadProcessTree()
+    ProcessEnvironment(pTreeList)
+
+
 
 //    val script = processDef.tasks.head.script
 
